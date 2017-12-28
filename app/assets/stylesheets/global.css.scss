@@ -1,0 +1,30 @@
+$dark_gray: #2B2E2E;
+$light_gray: #C0C1C1;
+$green: #529ECC;
+
+@mixin bold_font {
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding-top: 4.5rem;
+  font-family: 'Dosis', sans-serif;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wrapper-with-padding {
+  width: 80%;
+  margin: 0 auto;
+  padding: 3.5rem 0;
+}
