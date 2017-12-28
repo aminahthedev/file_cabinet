@@ -9,6 +9,7 @@ class DocsController < ApplicationController
   end
 
   def new
+    @doc = Doc.new
   end
 
   def create
@@ -17,7 +18,7 @@ class DocsController < ApplicationController
     if @doc.save
       redirect_to @doc
     else
-      flash.now = @doc.errors.full_messages.to_sentence
+      flash.now[:alert] = @doc.errors.full_messages.to_sentence
       render 'new'
     end
   end
@@ -26,9 +27,17 @@ class DocsController < ApplicationController
   end
 
   def update
+    if @doc.update(doc_params)
+      redirect_to @doc
+    else
+      flash.now[:alert] = @doc.errors.full_messages.to_sentence
+      render 'edit'
+    end
   end
 
   def destroy
+    @doc.destroy
+    redirect_to docs_path
   end
 
   private
